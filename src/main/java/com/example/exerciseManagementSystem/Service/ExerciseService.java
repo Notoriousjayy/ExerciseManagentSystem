@@ -5,11 +5,11 @@ import java.util.List;
 
 public interface ExerciseService
 {
-    List<Exercise> findAll();
+    public List<Exercise> findAll();
 
-    Object findById(final long id);
+    public Object findById(long id);
 
-    Exercise saveOrUpdate(final Exercise exercise);
+    public void saveOrUpdate(Exercise exercise);
 
-    void deleteById(final long id);
+    public void deleteById(long id);
 }

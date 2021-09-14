@@ -29,7 +29,7 @@ public class Exercise implements Serializable
     public Exercise() {
     }
 
-    public Exercise(final String name, final String area, final String instructions, final String imageUrl) {
+    public Exercise(String name, String area, String instructions,  String imageUrl) {
         this.name = name;
         this.area = area;
         this.instructions = instructions;
@@ -37,47 +37,47 @@ public class Exercise implements Serializable
     }
 
     public Long getId() {
-        return this.id;
+        return id;
     }
 
-    public void setId(final Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
-    public void setName(final String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
     public String getArea() {
-        return this.area;
+        return area;
     }
 
-    public void setArea(final String area) {
+    public void setArea(String area) {
         this.area = area;
     }
 
     public String getInstructions() {
-        return this.instructions;
+        return instructions;
     }
 
-    public void setInstructions(final String instructions) {
+    public void setInstructions(String instructions) {
         this.instructions = instructions;
     }
 
     public String getImageUrl() {
-        return this.imageUrl;
+        return imageUrl;
     }
 
-    public void setImageUrl(final String imageUrl) {
+    public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 
     @Override
-    public boolean equals(final Object object) {
+    public boolean equals(Object object) {
         if (this == object) {
             return true;
         }
@@ -96,11 +96,11 @@ public class Exercise implements Serializable
     @Override
     public String toString() {
         return "Exercise{" +
-                ", id=" +this.id + '\'' +
-                ", name="+this.name + '\'' +
-                ", area=" +this.area + '\'' +
-                ", instructions=" + this.instructions + '\'' +
-                ", imageUrl=" +this.imageUrl + '\'' +
+                "id=" + id +
+                ", name="+ name + '\'' +
+                ", area=" + area + '\'' +
+                ", instructions=" + instructions + '\'' +
+                ", imageUrl=" + imageUrl + '\'' +
                 "}";
     }
 }

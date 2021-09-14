@@ -8,9 +8,9 @@ public interface ExerciseRepository extends JpaRepository<Exercise, Long>
 {
     List<Exercise> findAll();
 
-    Object findById(final long id);
+    Object findById(long id);
 
-    void saveOrUpdate(final Exercise exercise);
+    void saveOrUpdate(Exercise exercise);
 
-    void deleteById(final long id);
+    void deleteById(long id);
 }

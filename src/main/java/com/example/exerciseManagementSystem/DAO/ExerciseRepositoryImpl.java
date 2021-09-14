@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import java.io.Serializable;
 import org.springframework.transaction.annotation.Transactional;
 import org.hibernate.query.Query;
 import org.hibernate.Session;
@@ -21,136 +20,172 @@ public class ExerciseRepositoryImpl implements ExerciseRepository
     private final EntityManager entityManager;
 
     @Autowired
-    public ExerciseRepositoryImpl(final EntityManager entityManager) {
+    public ExerciseRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
     @Transactional
     @Override
     public List<Exercise> findAll() {
-        final Session currentSession = (Session)this.entityManager.unwrap((Class)Session.class);
-        final Query<Exercise> myQuery = (Query<Exercise>)currentSession.createQuery("from Exercise");
-        return (List<Exercise>)myQuery.getResultList();
+        Session currentSession = entityManager.unwrap(Session.class);
+        Query<Exercise> myQuery = currentSession.createQuery("from Exercise");
+        return myQuery.getResultList();
     }
 
     @Transactional
     @Override
-    public Object findById(final long id) {
-        final Session currentSession = (Session)this.entityManager.unwrap((Class)Session.class);
-        return currentSession.get((Class)Exercise.class, (Serializable)id);
+    public Object findById(long id) {
+        Session currentSession = entityManager.unwrap(Session.class);
+        return currentSession.get(Exercise.class, id);
     }
 
     @Transactional
     @Override
-    public void saveOrUpdate(final Exercise exercise) {
-        final Session currentSession = (Session)this.entityManager.unwrap((Class)Session.class);
-        currentSession.saveOrUpdate((Object)exercise);
+    public void saveOrUpdate(Exercise exercise) {
+        Session currentSession = entityManager.unwrap(Session.class);
+        currentSession.saveOrUpdate(exercise);
     }
 
     @Transactional
     @Override
-    public void deleteById(final long id) {
-        final Session currentSession = (Session)this.entityManager.unwrap((Class)Session.class);
-        final Exercise exercise = (Exercise)currentSession.get((Class)Exercise.class, (Serializable)id);
-        currentSession.delete((Object)exercise);
+    public void deleteById(long id) {
+        Session currentSession = entityManager.unwrap(Session.class);
+        Exercise exercise = currentSession.get(Exercise.class, id);
+        currentSession.delete(exercise);
     }
 
-    public List<Exercise> findAll(final Sort sort) {
+    @Override
+    public List<Exercise> findAll(Sort sort) {
         return null;
     }
 
-    public Page<Exercise> findAll(final Pageable pageable) {
+    @Override
+    public Page<Exercise> findAll(Pageable pageable) {
         return null;
     }
 
-    public List<Exercise> findAllById(final Iterable<Long> iterable) {
+    @Override
+    public List<Exercise> findAllById(Iterable<Long> iterable) {
         return null;
     }
 
+    @Override
     public long count() {
-        return 0L;
+        return 0;
     }
 
-    public void deleteById(final Long aLong) {
+    @Override
+    public void deleteById(Long aLong) {
+
     }
 
-    public void delete(final Exercise exercise) {
+    @Override
+    public void delete(Exercise exercise) {
+
     }
 
-    public void deleteAllById(final Iterable<? extends Long> iterable) {
+    @Override
+    public void deleteAllById(Iterable<? extends Long> iterable) {
+
     }
 
-    public void deleteAll(final Iterable<? extends Exercise> iterable) {
+    @Override
+    public void deleteAll(Iterable<? extends Exercise> iterable) {
+
     }
 
+    @Override
     public void deleteAll() {
+
     }
 
-    public <S extends Exercise> S save(final S s) {
+    @Override
+    public <S extends Exercise> S save(S s) {
         return null;
     }
 
-    public <S extends Exercise> List<S> saveAll(final Iterable<S> iterable) {
+    @Override
+    public <S extends Exercise> List<S> saveAll(Iterable<S> iterable) {
         return null;
     }
 
-    public Optional<Exercise> findById(final Long aLong) {
+    @Override
+    public Optional<Exercise> findById(Long aLong) {
         return Optional.empty();
     }
 
-    public boolean existsById(final Long aLong) {
+    @Override
+    public boolean existsById(Long aLong) {
         return false;
     }
 
+    @Override
     public void flush() {
+
     }
 
-    public <S extends Exercise> S saveAndFlush(final S s) {
+    @Override
+    public <S extends Exercise> S saveAndFlush(S s) {
         return null;
     }
 
-    public <S extends Exercise> List<S> saveAllAndFlush(final Iterable<S> iterable) {
+    @Override
+    public <S extends Exercise> List<S> saveAllAndFlush(Iterable<S> iterable) {
         return null;
     }
 
-    public void deleteAllInBatch(final Iterable<Exercise> iterable) {
+    @Override
+    public void deleteAllInBatch(Iterable<Exercise> iterable) {
+
     }
 
-    public void deleteAllByIdInBatch(final Iterable<Long> iterable) {
+    @Override
+    public void deleteAllByIdInBatch(Iterable<Long> iterable) {
+
     }
 
+    @Override
     public void deleteAllInBatch() {
+
     }
 
-    public Exercise getOne(final Long aLong) {
+    @Override
+    public Exercise getOne(Long aLong) {
         return null;
     }
 
-    public Exercise getById(final Long aLong) {
+    @Override
+    public Exercise getById(Long aLong) {
         return null;
     }
 
-    public <S extends Exercise> Optional<S> findOne(final Example<S> example) {
+    @Override
+    public <S extends Exercise> Optional<S> findOne(Example<S> example) {
         return Optional.empty();
     }
 
-    public <S extends Exercise> List<S> findAll(final Example<S> example) {
+    @Override
+    public <S extends Exercise> List<S> findAll(Example<S> example) {
         return null;
     }
 
-    public <S extends Exercise> List<S> findAll(final Example<S> example, final Sort sort) {
+    @Override
+    public <S extends Exercise> List<S> findAll(Example<S> example, Sort sort) {
         return null;
     }
 
-    public <S extends Exercise> Page<S> findAll(final Example<S> example, final Pageable pageable) {
+    @Override
+    public <S extends Exercise> Page<S> findAll(Example<S> example, Pageable pageable) {
         return null;
     }
 
-    public <S extends Exercise> long count(final Example<S> example) {
-        return 0L;
+    @Override
+    public <S extends Exercise> long count(Example<S> example) {
+        return 0;
     }
 
-    public <S extends Exercise> boolean exists(final Example<S> example) {
+    @Override
+    public <S extends Exercise> boolean exists(Example<S> example) {
         return false;
     }
 }
