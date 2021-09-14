@@ -1,6 +1,7 @@
 package com.example.exerciseManagementSystem.Controller;
 
 import com.example.exerciseManagementSystem.Service.ExerciseService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,8 +49,8 @@ public class ExerciseController {
     }
 
     @DeleteMapping({ "/deleteExercise/{id}" })
-    public String deleteExercise(@PathVariable int id) {
+    public ResponseEntity<?> deleteExercise(@PathVariable long id){
         exerciseService.deleteById(id);
-        return "Deleted part id : " + id;
+        return ResponseEntity.noContent().build();
     }
 }
